@@ -1,0 +1,149 @@
+body {
+    background-color: #653535;
+}
+
+.horizontal_flexbox {
+    display: flex;
+    flex-direction: row;
+    gap: 3em;
+    margin: 5em;
+}
+
+#css_scroll {
+    background-image: url("imgs/scroll.png");
+    height: 35em;
+    width: 100%; 
+    
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+
+
+#css_scroll pre {
+    max-width: 50%;
+    height: 45%;
+    word-break: break-word;
+    white-space: pre-wrap;
+    overflow-y: auto;
+    background: rgba(255, 255, 255, 0.85);
+    border-radius: 8px;
+    padding: 1em;
+
+    margin: 0;
+}
+
+#css_scroll code {
+    display: block;
+    font-size: 0.7em;
+    color: #222222;
+    font-family: "Fira Code", monospace;
+    line-height: 1.4;
+    font-weight: bold;
+}
+
+#magic_zone {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5em;
+    width: 80em;
+}
+
+#magic_ball {
+    width: 10em;
+    height: 10em;
+    border-radius: 50%;
+    /* Creates a light source effect from the top-left */
+    background: radial-gradient(
+        circle at 30px 30px, /* Position of the light source */
+        #ffffff,            /* Highlight color (white) */
+        #dffaff 30%,        /* Mid-tone color */
+        #7794b6           /* Shadow color */
+    );
+}
+
+#cauldron {
+    height: 15em;
+}
+
+#cauldron img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+#potion_grid {
+    display: grid;
+    width: 50em;
+    height: 30em;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 
+    0.4fr 0.4fr 0.4fr 0.4fr;
+    row-gap: 0;
+}
+
+#one.potion {
+    grid-column: 1;
+    grid-row: 1
+}
+
+#two.potion {
+    grid-column: 2;
+    grid-row: 1
+}
+
+#three.potion {
+    grid-column: 3;
+    grid-row: 1
+}
+
+#transformations.shelf {
+    grid-column: 1 / 4;
+    grid-row: 2;
+}
+
+#four.potion {
+    grid-column: 1;
+    grid-row: 3
+}
+
+#five.potion {
+    grid-column: 2;
+    grid-row: 3
+}
+
+#six.potion {
+    grid-column: 3;
+    grid-row: 3
+}
+
+#animations.shelf {
+    grid-column: 1 / 4;
+    grid-row: 4;
+}
+
+.potion, .shelf {
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.potion img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.shelf img {
+    width: 100%;
+    height: auto;
+    display: block;
+}

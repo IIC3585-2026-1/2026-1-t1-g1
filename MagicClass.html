@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Magic Class</title>
+    <link rel="stylesheet" href="MagicClass.css">
+</head>
+<body>
+    <header>   
+
+    </header>
+    <main>
+        <div class="horizontal_flexbox">
+            <div id="css_scroll">
+                <pre><code id="css_code"></code></pre>
+            </div>
+            <div id="magic_zone">
+                <div id="magic_ball"></div>
+                <div id="cauldron">
+                    <img src="imgs/cauldron.png"
+                         alt="Cauldron">
+                </div>
+            </div>
+            <div id="potion_grid">
+                <div class="potion" id="one">
+                    <img src="imgs/potion1.png">
+                </div>
+                <div class="potion" id="two">
+                    <img src="imgs/potion1.png">
+                </div>
+                <div class="potion" id="three">
+                    <img src="imgs/potion1.png">
+                </div>
+                <div class="shelf" id="transformations">
+                    <img src="imgs/transformations_shelf.png"
+                        alt="Transformations Shelf">
+                </div>
+                <div class="potion" id="four">
+                    <img src="imgs/potion1.png">
+                </div>
+                <div class="potion" id="five">
+                    <img src="imgs/potion1.png">
+                </div>
+                <div class="potion" id="six">
+                    <img src="imgs/potion1.png">
+                </div>
+                <div class="shelf" id="animations">
+                    <img src="imgs/animations_shelf.png"
+                        alt="Animations Shelf">
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer>
+
+    </footer>
+
+    <script>
+        fetch("MagicClass.css")
+        .then(res => res.text())
+        .then(css => {
+            const match = css.match(/#magic_ball\s*{[^}]*}/);
+            document.getElementById("css_code").textContent = match ? match[0] : css;
+        });
+    </script>
+
+</body>
+</html>
