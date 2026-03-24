@@ -56,6 +56,16 @@ body {
     width: 80em;
 }
 
+#magic_ball_wrapper {
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+    0% { transform: translate(0,0); }
+    50% { transform: translate(0,-10px); }
+    100% { transform: translate(0,0); }
+}
+
 #magic_ball {
     width: 10em;
     height: 10em;
@@ -310,12 +320,4 @@ body:has(#six:hover) #magic_ball {
     .shelf {
         display: none;
     }
-}
-
-
-
-@keyframes float {
-    0% { transform: translate(0,0); }
-    50% { transform: translate(0,-10px); }
-    100% { transform: translate(0,0); }
 }
