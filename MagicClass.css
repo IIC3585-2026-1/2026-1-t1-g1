@@ -56,6 +56,16 @@ body {
     width: 80em;
 }
 
+#magic_ball_wrapper {
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+    0% { transform: translate(0,0); }
+    50% { transform: translate(0,-10px); }
+    100% { transform: translate(0,0); }
+}
+
 #magic_ball {
     width: 10em;
     height: 10em;
@@ -67,7 +77,21 @@ body {
         #dffaff 30%,        /* Mid-tone color */
         #7794b6           /* Shadow color */
     );
+    transition: transform 0.4s ease; 
 }
+
+#magic_ball:hover {
+    animation: horizontal-shaking 0.15s infinite;
+}
+
+@keyframes horizontal-shaking {
+    0% { transform: translateX(0) }
+    25% { transform: translateX(5px) }
+    50% { transform: translateX(-5px) }
+    75% { transform: translateX(5px) }
+    100% { transform: translateX(0) }
+}
+
 
 #cauldron {
     height: 15em;
@@ -174,6 +198,27 @@ body {
     width: 100%;
     height: auto;
     display: block;
+}
+
+/*Poción 1: Bola aumenta de tamaño*/
+.horizontal_flexbox:has(#one:hover) #magic_ball {
+    transform: scale(1.5);
+}
+
+/*Poción 2: Bola disminuye su tamaño*/
+.horizontal_flexbox:has(#two:hover) #magic_ball {
+    transform: scale(0.5);
+}
+
+/*Poción 3: La bola se deforma*/
+@keyframes skeOne {
+  0% {transform: skew(0);}
+  40% {transform: skewX(35deg);}
+  80% {transform: skewX(-35deg);}
+  100% {transform: skewX(0);}
+}
+.horizontal_flexbox:has(#three:hover) #magic_ball {
+    animation: skeOne 2.5s infinite;
 }
 
 /* Poción 4: Bola rebota*/
