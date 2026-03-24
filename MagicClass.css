@@ -190,6 +190,27 @@ body {
     display: block;
 }
 
+/*Poción 1: Bola aumenta de tamaño*/
+.horizontal_flexbox:has(#one:hover) #magic_ball {
+    transform: scale(1.5);
+}
+
+/*Poción 2: Bola disminuye su tamaño*/
+.horizontal_flexbox:has(#two:hover) #magic_ball {
+    transform: scale(0.5);
+}
+
+/*Poción 3: La bola se deforma*/
+@keyframes skeOne {
+  0% {transform: skew(0);}
+  40% {transform: skewX(35deg);}
+  80% {transform: skewX(-35deg);}
+  100% {transform: skewX(0);}
+}
+.horizontal_flexbox:has(#three:hover) #magic_ball {
+    animation: skeOne 2.5s infinite;
+}
+
 /* Poción 4: Bola rebota*/
 @keyframes bounce {
     0%, 100% { transform: translateY(0); }
@@ -291,27 +312,7 @@ body:has(#six:hover) #magic_ball {
     }
 }
 
-/*Poción 1: Bola aumenta de tamaño*/
-.horizontal_flexbox:has(#one:hover) #magic_ball {
-    transform: scale(1.5);
-}
 
-/*Poción 2: Bola disminuye su tamaño*/
-.horizontal_flexbox:has(#two:hover) #magic_ball {
-    transform: scale(0.5);
-}
-
-/*Poción 3: La bola se deforma*/
-.horizontal_flexbox:has(#three:hover) #magic_ball {
-    animation: skeOne 2.5s infinite;
-}
-
-@keyframes skeOne {
-  0% {transform: skew(0);}
-  40% {transform: skewX(35deg);}
-  80% {transform: skewX(-35deg);}
-  100% {transform: skewX(0);}
-}
 
 @keyframes float {
     0% { transform: translate(0,0); }
