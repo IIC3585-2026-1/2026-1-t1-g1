@@ -175,3 +175,58 @@ body {
     height: auto;
     display: block;
 }
+
+@media screen and (max-width: 1200px) {
+    #css_scroll {
+        background-image: none;
+    }
+    #css_scroll pre {
+        max-width: 80%;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    #css_scroll {
+        display: none;
+    }
+    .shelf {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .horizontal_flexbox {
+        flex-direction: column;
+        align-items: center;
+        gap: 5em;
+        margin: 2em;
+    }
+
+    #magic_zone {
+        width: 100%;
+        gap: 0;
+    }
+
+    #magic_ball {
+        width: 8em;
+        height: 8em;
+    }
+
+    #cauldron {
+        display: none;
+    }
+
+    #potion_grid {
+        width: 100%;
+        max-width: 22em;
+        height: auto;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(2, auto);
+        row-gap: 0.8em;
+        column-gap: 0.5em;
+    }
+
+    .shelf {
+        display: none;
+    }
+}
