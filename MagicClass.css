@@ -190,6 +190,52 @@ body {
     display: block;
 }
 
+/* Poción 4: Bola rebota*/
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5em); }
+}
+
+#four:hover {
+    transform: scale(1.1);
+}
+
+body:has(#four:hover) #magic_ball {
+    animation: bounce 0.6s infinite;
+}
+
+/* Poción 5: Bola brilla*/
+@keyframes glow {
+    0%, 100% {
+        box-shadow: 0 0 10px #aeefff, 0 0 20px #7fdfff;
+    }
+    50% {
+        box-shadow: 0 0 25px #ffffff, 0 0 50px #7fdfff;
+    }
+}
+
+#five:hover {
+    transform: scale(1.1);
+}
+
+body:has(#five:hover) #magic_ball {
+    animation: glow 1s infinite;
+}
+
+/* Poción 6: Bola desaparece y aparece*/
+@keyframes vanish {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+#six:hover {
+    transform: scale(1.1);
+}
+
+body:has(#six:hover) #magic_ball {
+    animation: vanish 3s infinite;
+}
+
 @media screen and (max-width: 1200px) {
     #css_scroll {
         background-image: none;
