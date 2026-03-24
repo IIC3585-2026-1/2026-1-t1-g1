@@ -71,12 +71,40 @@ body {
 
 #cauldron {
     height: 15em;
+    position: relative;
 }
 
 #cauldron img {
     width: 100%;
     height: 100%;
     object-fit: contain;
+}
+
+.bubble {
+    position: absolute;
+    bottom: 10em;
+    width: 1em;
+    height: 1em;
+    border-radius: 50%;
+    background: radial-gradient(circle, #03ac13, #597d35);
+
+    animation: rise 4s infinite ease-in;
+}
+
+.b1 { left: 38%; animation-delay: 0s; }
+.b2 { left: 45%; animation-delay: 1s; }
+.b3 { left: 55%; animation-delay: 2s; }
+.b4 { left: 48%; animation-delay: 3s; }
+
+@keyframes rise {
+    0% {
+        transform: translateY(0) scale(1);
+        opacity: 0.9;
+    }
+    100% {
+        transform: translateY(-6em) scale(1.3);
+        opacity: 0;
+    }
 }
 
 #potion_grid {
