@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CSS Magic Class</title>
-    <link rel="stylesheet" href="MagicClass.css">
+    <link rel="stylesheet" href="styles/MagicClass.css">
 </head>
 <body>
     <header>   
@@ -65,12 +65,13 @@
     </footer>
 
     <script>
-        fetch("MagicClass.css")
+        fetch("styles/MagicClass.css")
         .then(res => res.text())
         .then(css => {
             const match = css.match(/#magic_ball\s*{[^}]*}/);
             document.getElementById("css_code").textContent = match ? match[0] : css;
-        });
+        })
+        .catch(err => console.error("Error cargando CSS:", err));
     </script>
 
 </body>
