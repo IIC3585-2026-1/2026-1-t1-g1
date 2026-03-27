@@ -313,3 +313,22 @@ body {
     }
 }
 
+
+.potion {
+    cursor: grab;
+}
+
+.potion:active {
+    cursor: grabbing;
+}
+
+.potion img {
+    pointer-events: none;
+}
+
+#cauldron.drag-over {
+    outline: 3px dashed purple;
+    transform: scale(1.05);
+    transition: 0.2s;
+}
+

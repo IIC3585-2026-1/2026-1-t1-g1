@@ -8,114 +8,150 @@
     <link rel="stylesheet" href="styles/potions.css">
 </head>
 <body>
-    <header>   
 
-    </header>
-    <main>
-        <div class="horizontal_flexbox">
-            <div id="css_scroll">
-                <pre><code id="css_code"></code></pre>
+<main>
+    <div class="horizontal_flexbox">
+
+        <div id="css_scroll">
+            <pre><code id="css_code">Arrastra una poción al caldero...</code></pre>
+        </div>
+
+        <div id="magic_zone">
+            <div id="magic_ball_wrapper"> 
+                <div id="magic_ball"></div>
             </div>
-            <div id="magic_zone">
-                <div id="magic_ball_wrapper"> 
-                    <div id="magic_ball"></div>
-                </div>
-                
-                <div id="cauldron">
-                    <img src="imgs/cauldron.png"
-                         alt="Cauldron">
-                    
-                    <span class="bubble b1"></span>
-                    <span class="bubble b2"></span>
-                    <span class="bubble b3"></span>
-                    <span class="bubble b4"></span>
-                </div>
-            </div>
-            <div id="potion_grid">
-                <div class="potion" id="one">
-                    <img src="imgs/potion1.png">
-                </div>
-                <div class="potion" id="two">
-                    <img src="imgs/potion2.png">
-                </div>
-                <div class="potion" id="three">
-                    <img src="imgs/potion3.png">
-                </div>
-                <div class="shelf" id="transformations">
-                    <img src="imgs/transformations_shelf.png"
-                        alt="Transformations Shelf">
-                </div>
-                <div class="potion" id="four">
-                    <img src="imgs/potion4.png">
-                </div>
-                <div class="potion" id="five">
-                    <img src="imgs/potion5.png">
-                </div>
-                <div class="potion" id="six">
-                    <img src="imgs/potion6.png">
-                </div>
-                <div class="shelf" id="animations">
-                    <img src="imgs/animations_shelf.png"
-                        alt="Animations Shelf">
-                </div>
+            
+            <div id="cauldron">
+                <img src="imgs/cauldron.png" alt="Cauldron">
+                <span class="bubble b1"></span>
+                <span class="bubble b2"></span>
+                <span class="bubble b3"></span>
+                <span class="bubble b4"></span>
             </div>
         </div>
-    </main>
-    <footer>
 
-    </footer>
+        <div id="potion_grid">
+            <div class="potion" id="one" draggable="true">
+                <img src="imgs/potion1.png">
+            </div>
+            <div class="potion" id="two" draggable="true">
+                <img src="imgs/potion2.png">
+            </div>
+            <div class="potion" id="three" draggable="true">
+                <img src="imgs/potion3.png">
+            </div>
 
-    <!-- <script>
-        fetch("styles/MagicClass.css")
-        .then(res => res.text())
-        .then(css => {
-            console.log(css);
-            const match = css.match(/#magic_ball\s*{[^}]*}/);
-            document.getElementById("css_code").textContent = match ? match[0] : css;
-        })
-        .catch(err => console.error("Error cargando CSS:", err));
-    </script> -->
+            <div class="shelf" id="transformations">
+                <img src="imgs/transformations_shelf.png">
+            </div>
 
-    <script>
-        let ballCSS = "";
-        let potionsCSS = "";
+            <div class="potion" id="four" draggable="true">
+                <img src="imgs/potion4.png">
+            </div>
+            <div class="potion" id="five" draggable="true">
+                <img src="imgs/potion5.png">
+            </div>
+            <div class="potion" id="six" draggable="true">
+                <img src="imgs/potion6.png">
+            </div>
 
-        Promise.all([
-            fetch("styles/MagicClass.css").then(res => res.text()),
-            fetch("styles/potions.css").then(res => res.text())
-        ]).then(([magicClass, potions]) => {
-            magicClassCSS = magicClass;
-            potionsCSS = potions;
+            <div class="shelf" id="animations">
+                <img src="imgs/animations_shelf.png">
+            </div>
+        </div>
 
-            const match = magicClassCSS.match(/#magic_ball\s*\{[^}]*\}/);
-            document.getElementById("css_code").textContent = match ? match[0] : magicClassCSS;
-        });
+    </div>
+</main>
 
-        // Mapeo de ID con su poción 
-        const potionSelectors = {
-            "one":   /\/\*Potion_1\*\/([\s\S]*?)\/\*Potion_1_end\*\//,
-            "two":   /\/\*Potion_2\*\/([\s\S]*?)\/\*Potion_2_end\*\//,
-            "three": /\/\*Potion_3\*\/([\s\S]*?)\/\*Potion_3_end\*\//,
-            "four":  /\/\*Potion_4\*\/([\s\S]*?)\/\*Potion_4_end\*\//,
-            "five":  /\/\*Potion_5\*\/([\s\S]*?)\/\*Potion_5_end\*\//,
-            "six":   /\/\*Potion_6\*\/([\s\S]*?)\/\*Potion_6_end\*\//,
-        };
+<script>
+let magicClassCSS = "";
+let potionsCSS = "";
 
-        document.querySelectorAll(".potion").forEach(potion => {
-            potion.addEventListener("mouseenter", () => {
-                const id = potion.id;
-                if (potionSelectors[id]) {
-                    const match = potionsCSS.match(new RegExp(potionSelectors[id]));
-                    document.getElementById("css_code").textContent = match ? match[0] : potionsCSS;
-                }
-            });
+// cargar CSS
+Promise.all([
+    fetch("styles/MagicClass.css").then(res => res.text()),
+    fetch("styles/potions.css").then(res => res.text())
+]).then(([magicClass, potions]) => {
+    magicClassCSS = magicClass;
+    potionsCSS = potions;
+});
 
-            potion.addEventListener("mouseleave", () => {
-                const match = magicClassCSS.match(/#magic_ball\s*\{[^}]*\}/);
-                document.getElementById("css_code").textContent = match ? match[0] : magicClassCSS;
-            });
-        });
-    </script>
+// regex de pociones
+const potionSelectors = {
+    "one":   /\/\*Potion_1\*\/([\s\S]*?)\/\*Potion_1_end\*\//,
+    "two":   /\/\*Potion_2\*\/([\s\S]*?)\/\*Potion_2_end\*\//,
+    "three": /\/\*Potion_3\*\/([\s\S]*?)\/\*Potion_3_end\*\//,
+    "four":  /\/\*Potion_4\*\/([\s\S]*?)\/\*Potion_4_end\*\//,
+    "five":  /\/\*Potion_5\*\/([\s\S]*?)\/\*Potion_5_end\*\//,
+    "six":   /\/\*Potion_6\*\/([\s\S]*?)\/\*Potion_6_end\*\//,
+};
+
+// drag start
+document.querySelectorAll(".potion").forEach(potion => {
+    potion.addEventListener("dragstart", (e) => {
+        e.dataTransfer.setData("text/plain", potion.id);
+    });
+});
+
+const cauldron = document.getElementById("cauldron");
+const body = document.body;
+
+// permitir drop
+cauldron.addEventListener("dragover", (e) => {
+    e.preventDefault();
+});
+
+// clases de efectos
+const potionClasses = {
+    "one": "potion-one",
+    "two": "potion-two",
+    "three": "potion-three",
+    "four": "potion-four",
+    "five": "potion-five",
+    "six": "potion-six",
+};
+
+// drop
+cauldron.addEventListener("drop", (e) => {
+    e.preventDefault();
+
+    const id = e.dataTransfer.getData("text/plain");
+
+    // quitar efecto anterior
+    Object.values(potionClasses).forEach(cls => body.classList.remove(cls));
+
+    // aplicar nuevo efecto
+    if (potionClasses[id]) {
+        body.classList.add(potionClasses[id]);
+    }
+
+    // mostrar código correcto
+    if (potionSelectors[id]) {
+        const match = potionsCSS.match(potionSelectors[id]);
+        document.getElementById("css_code").textContent =
+            match ? match[0] : "No se encontró la poción";
+    }
+
+    cauldron.classList.remove("drag-over");
+});
+
+// efecto visual drag
+cauldron.addEventListener("dragenter", () => {
+    cauldron.classList.add("drag-over");
+});
+
+cauldron.addEventListener("dragleave", () => {
+    cauldron.classList.remove("drag-over");
+});
+
+// reset
+document.body.addEventListener("click", (e) => {
+    if (!e.target.closest("#cauldron")) {
+        Object.values(potionClasses).forEach(cls => body.classList.remove(cls));
+        document.getElementById("css_code").textContent = "Arrastra una poción al caldero...";
+    }
+});
+</script>
 
 </body>
 </html>
