@@ -6,13 +6,16 @@ body {
     display: flex;
     flex-direction: row;
     gap: 3em;
-    margin: 5em;
+    margin: clamp(1rem, 4vw, 5em);
+    container-type: inline-size;
+    container-name: layout;
+    align-items: flex-start;
 }
 
 #css_scroll {
     background-image: url("../imgs/scroll.png");
     height: 35em;
-    width: 100%; 
+    width: min(100%, 32rem);
     
     background-size: contain;
     background-position: center;
@@ -53,7 +56,7 @@ body {
     align-items: center;
     justify-content: center;
     gap: 5em;
-    width: 80em;
+    width: min(100%, 28rem);
 }
 
 #magic_ball_wrapper {
@@ -93,7 +96,7 @@ body {
 
 
 #cauldron {
-    height: 15em;
+    height: clamp(10em, 30vw, 15em);
     position: relative;
 }
 
@@ -132,12 +135,14 @@ body {
 
 #potion_grid {
     display: grid;
-    width: 50em;
+    width: min(100%, 24rem);
     height: 30em;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: 
     0.4fr 0.4fr 0.4fr 0.4fr;
     row-gap: 0;
+    container-type: inline-size;
+    container-name: potions;
 }
 
 #one.potion {
@@ -200,35 +205,72 @@ body {
 }
 
 
-@media screen and (max-width: 1200px) {
-    #css_scroll {
-        background-image: none;
-    }
-    #css_scroll pre {
-        max-width: 80%;
-    }
-}
-
-@media screen and (max-width: 900px) {
-    #css_scroll {
-        display: none;
-    }
-    .shelf {
-        display: none;
-    }
-}
-
-@media screen and (max-width: 500px) {
+@container layout (max-width: 120rem) {
     .horizontal_flexbox {
-        flex-direction: column;
-        align-items: center;
-        gap: 5em;
-        margin: 2em;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 2rem;
+    }
+
+    #css_scroll {
+        width: min(100%, 40rem);
+        height: 30em;
     }
 
     #magic_zone {
+        order: 1;
+        width: min(100%, 30rem);
+        gap: 3em;
+    }
+
+    #potion_grid {
+        order: 2;
+        width: min(100%, 34rem);
+    }
+}
+
+
+
+@media (max-width: 1024px) {
+    .horizontal_flexbox {
+        margin: 1.5rem;
+        gap: 1.5rem;
+    }
+
+    #css_scroll {
+        height: 28em;
+    }
+
+    #css_scroll pre {
+        max-width: 56%;
+        height: 52%;
+    }
+}
+
+@media (max-width: 768px) {
+    .horizontal_flexbox {
+        flex-direction: column;
+        align-items: center;
+        gap: 4rem;
+    }
+
+    #css_scroll,
+    #magic_zone {
         width: 100%;
-        gap: 0;
+    }
+
+    #potion_grid {
+        width: 55%;
+    }
+
+    #css_scroll {
+        height: 22em;
+    }
+
+    #css_scroll pre {
+        max-width: 30%;
+        height: 56%;
+        font-size: 0.95rem;
     }
 
     #magic_ball {
@@ -239,18 +281,35 @@ body {
     #cauldron {
         display: none;
     }
+}
 
-    #potion_grid {
-        width: 100%;
-        max-width: 22em;
-        height: auto;
-        grid-template-columns: repeat(3, 1fr);
-        grid-template-rows: repeat(2, auto);
-        row-gap: 0.8em;
-        column-gap: 0.5em;
+@media (max-width: 480px) {
+    body {
+        margin: 0;
     }
 
-    .shelf {
-        display: none;
+    .horizontal_flexbox {
+        margin: 1rem 0.75rem;
+        gap: 3rem;
+    }
+
+    #css_scroll {
+        height: 18em;
+    }
+
+    #css_scroll pre {
+        max-width: 70%;
+        height: 60%;
+        padding: 0.8em;
+    }
+
+    #css_scroll code {
+        font-size: 0.62em;
+    }
+
+    #magic_zone {
+        gap: 2rem;
+        margin-top: 3rem;
     }
 }
+
