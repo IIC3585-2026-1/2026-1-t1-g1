@@ -106,6 +106,12 @@ body {
     object-fit: contain;
 }
 
+#cauldron.drag-over {
+    outline: 3px dashed purple;
+    transform: scale(1.05);
+    transition: 0.2s;
+}
+
 .bubble {
     position: absolute;
     bottom: 10em;
@@ -196,6 +202,15 @@ body {
     width: 100%;
     height: auto;
     display: block;
+    pointer-events: none;
+}
+
+.potion {
+    cursor: grab;
+}
+
+.potion:active {
+    cursor: grabbing;
 }
 
 .shelf img {
@@ -279,7 +294,9 @@ body {
     }
 
     #cauldron {
-        display: none;
+    display: block;
+    width: 60%;
+    margin: 0 auto;
     }
 }
 
@@ -313,22 +330,4 @@ body {
     }
 }
 
-
-.potion {
-    cursor: grab;
-}
-
-.potion:active {
-    cursor: grabbing;
-}
-
-.potion img {
-    pointer-events: none;
-}
-
-#cauldron.drag-over {
-    outline: 3px dashed purple;
-    transform: scale(1.05);
-    transition: 0.2s;
-}
 
