@@ -1,0 +1,84 @@
+/*Potion_1*/
+/*MagicBall aumenta de tamaño*/
+
+#one:hover { transform: scale(1.1); }
+.horizontal_flexbox:has(#one:hover) #magic_ball {
+    transform: scale(1.5);
+}
+
+/*Potion_1_end*/
+
+
+/*Potion_2*/
+/*MagicBall disminuye de tamaño*/
+
+#two:hover { transform: scale(1.1); }
+.horizontal_flexbox:has(#two:hover) #magic_ball {
+    transform: scale(0.5);
+}
+
+/*Potion_2_end*/
+
+
+/*Potion_3*/
+/*MagicBall se deforma*/
+
+@keyframes skeOne {
+  0% {transform: skew(0);}
+  40% {transform: skewX(35deg);}
+  80% {transform: skewX(-35deg);}
+  100% {transform: skewX(0);}
+}
+
+#three:hover { transform: scale(1.1); }
+.horizontal_flexbox:has(#three:hover) #magic_ball {
+    animation: skeOne 2.5s infinite;
+}
+
+/*Potion_3_end*/
+
+
+/*Potion_4*/
+/*MagicBall rebota*/
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5em); }
+}
+
+#four:hover { transform: scale(1.1); }
+body:has(#four:hover) #magic_ball {
+    animation: bounce 0.6s infinite;
+}
+
+/*Potion_4_end*/
+
+
+/*Potion_5*/
+/*MagicBall brilla*/
+
+#five:hover { transform: scale(1.1); }
+body:has(#five:hover) #magic_ball {
+    animation: glow 1s infinite;
+}
+@keyframes glow {
+    0%, 100% { box-shadow: 0 0 10px #aeefff, 0 0 20px #7fdfff; }
+    50% { box-shadow: 0 0 25px #ffffff, 0 0 50px #7fdfff; }
+}
+
+/*Potion_5_end*/
+
+
+/*Potion_6*/
+/*MagicBall aparece y desaparece*/
+
+#six:hover { transform: scale(1.1); }
+body:has(#six:hover) #magic_ball {
+    animation: vanish 3s infinite;
+}
+@keyframes vanish {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+/*Potion_6_end*/
