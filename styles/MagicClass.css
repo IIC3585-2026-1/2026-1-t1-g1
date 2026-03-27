@@ -82,7 +82,7 @@ body {
     transition: transform 0.4s ease; 
 }
 
-#magic_ball:hover {
+#magic_ball_wrapper:hover {
     animation: horizontal-shaking 0.15s infinite;
 }
 
