@@ -13,7 +13,7 @@ body {
 }
 
 #css_scroll {
-    background-image: url("imgs/scroll.png");
+    background-image: url("../imgs/scroll.png");
     height: 35em;
     width: min(100%, 32rem);
     
@@ -73,12 +73,11 @@ body {
     width: 10em;
     height: 10em;
     border-radius: 50%;
-    /* Creates a light source effect from the top-left */
     background: radial-gradient(
-        circle at 30px 30px, /* Position of the light source */
-        #ffffff,            /* Highlight color (white) */
-        #dffaff 30%,        /* Mid-tone color */
-        #7794b6           /* Shadow color */
+        circle at 30px 30px,
+        #ffffff,           
+        #dffaff 30%,        
+        #7794b6           
     );
     transition: transform 0.4s ease; 
 }
@@ -205,72 +204,6 @@ body {
     display: block;
 }
 
-/*Poción 1: Bola aumenta de tamaño*/
-.horizontal_flexbox:has(#one:hover) #magic_ball {
-    transform: scale(1.5);
-}
-
-/*Poción 2: Bola disminuye su tamaño*/
-.horizontal_flexbox:has(#two:hover) #magic_ball {
-    transform: scale(0.5);
-}
-
-/*Poción 3: La bola se deforma*/
-@keyframes skeOne {
-  0% {transform: skew(0);}
-  40% {transform: skewX(35deg);}
-  80% {transform: skewX(-35deg);}
-  100% {transform: skewX(0);}
-}
-.horizontal_flexbox:has(#three:hover) #magic_ball {
-    animation: skeOne 2.5s infinite;
-}
-
-/* Poción 4: Bola rebota*/
-@keyframes bounce {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-5em); }
-}
-
-#four:hover {
-    transform: scale(1.1);
-}
-
-body:has(#four:hover) #magic_ball {
-    animation: bounce 0.6s infinite;
-}
-
-/* Poción 5: Bola brilla*/
-@keyframes glow {
-    0%, 100% {
-        box-shadow: 0 0 10px #aeefff, 0 0 20px #7fdfff;
-    }
-    50% {
-        box-shadow: 0 0 25px #ffffff, 0 0 50px #7fdfff;
-    }
-}
-
-#five:hover {
-    transform: scale(1.1);
-}
-
-body:has(#five:hover) #magic_ball {
-    animation: glow 1s infinite;
-}
-
-/* Poción 6: Bola desaparece y aparece*/
-@keyframes vanish {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0; }
-}
-
-#six:hover {
-    transform: scale(1.1);
-}
-
-body:has(#six:hover) #magic_ball {
-    animation: vanish 3s infinite;
-}
 
 @container layout (max-width: 120rem) {
     .horizontal_flexbox {

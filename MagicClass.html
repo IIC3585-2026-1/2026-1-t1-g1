@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CSS Magic Class</title>
-    <link rel="stylesheet" href="MagicClass.css">
+    <link rel="stylesheet" href="styles/MagicClass.css">
+    <link rel="stylesheet" href="styles/potions.css">
 </head>
 <body>
     <header>   
@@ -35,23 +36,23 @@
                     <img src="imgs/potion1.png">
                 </div>
                 <div class="potion" id="two">
-                    <img src="imgs/potion1.png">
+                    <img src="imgs/potion2.png">
                 </div>
                 <div class="potion" id="three">
-                    <img src="imgs/potion1.png">
+                    <img src="imgs/potion3.png">
                 </div>
                 <div class="shelf" id="transformations">
                     <img src="imgs/transformations_shelf.png"
                         alt="Transformations Shelf">
                 </div>
                 <div class="potion" id="four">
-                    <img src="imgs/potion1.png">
+                    <img src="imgs/potion4.png">
                 </div>
                 <div class="potion" id="five">
-                    <img src="imgs/potion1.png">
+                    <img src="imgs/potion5.png">
                 </div>
                 <div class="potion" id="six">
-                    <img src="imgs/potion1.png">
+                    <img src="imgs/potion6.png">
                 </div>
                 <div class="shelf" id="animations">
                     <img src="imgs/animations_shelf.png"
@@ -64,12 +65,55 @@
 
     </footer>
 
-    <script>
-        fetch("MagicClass.css")
+    <!-- <script>
+        fetch("styles/MagicClass.css")
         .then(res => res.text())
         .then(css => {
+            console.log(css);
             const match = css.match(/#magic_ball\s*{[^}]*}/);
             document.getElementById("css_code").textContent = match ? match[0] : css;
+        })
+        .catch(err => console.error("Error cargando CSS:", err));
+    </script> -->
+
+    <script>
+        let ballCSS = "";
+        let potionsCSS = "";
+
+        Promise.all([
+            fetch("styles/MagicClass.css").then(res => res.text()),
+            fetch("styles/potions.css").then(res => res.text())
+        ]).then(([magicClass, potions]) => {
+            magicClassCSS = magicClass;
+            potionsCSS = potions;
+
+            const match = magicClassCSS.match(/#magic_ball\s*\{[^}]*\}/);
+            document.getElementById("css_code").textContent = match ? match[0] : magicClassCSS;
+        });
+
+        // Mapeo de ID con su poción 
+        const potionSelectors = {
+            "one":   /\/\*Potion_1\*\/([\s\S]*?)\/\*Potion_1_end\*\//,
+            "two":   /\/\*Potion_2\*\/([\s\S]*?)\/\*Potion_2_end\*\//,
+            "three": /\/\*Potion_3\*\/([\s\S]*?)\/\*Potion_3_end\*\//,
+            "four":  /\/\*Potion_4\*\/([\s\S]*?)\/\*Potion_4_end\*\//,
+            "five":  /\/\*Potion_5\*\/([\s\S]*?)\/\*Potion_5_end\*\//,
+            "six":   /\/\*Potion_6\*\/([\s\S]*?)\/\*Potion_6_end\*\//,
+        };
+
+        document.querySelectorAll(".potion").forEach(potion => {
+            potion.addEventListener("mouseenter", () => {
+                const id = potion.id;
+                if (potionSelectors[id]) {
+                    const match = potionsCSS.match(new RegExp(potionSelectors[id]));
+                    document.getElementById("css_code").textContent = match ? match[0] : potionsCSS;
+                }
+            });
+
+            potion.addEventListener("mouseleave", () => {
+                const match = magicClassCSS.match(/#magic_ball\s*\{[^}]*\}/);
+                document.getElementById("css_code").textContent = match ? match[0] : magicClassCSS;
+            });
         });
     </script>
 
