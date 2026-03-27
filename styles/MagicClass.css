@@ -1,5 +1,36 @@
+:root {
+    --background-color: #653535;
+    --text-color: #222222;
+    --nav-color: #a36767e2;
+}
+
 body {
-    background-color: #653535;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    margin: 0;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    gap: 1em;
+    padding: 1em;
+    background-color: var(--nav-color);
+}
+nav h1 {
+    font-size: 1.5em;
+    margin: 0;
+}
+nav #logo {
+    width: 40px;
+    height: 40px;
+    animation: logo-animation 2s ease-in-out infinite;
+}
+
+@keyframes logo-animation{
+    0% { transform: rotate(-10deg)}
+    50% { transform: rotate(10deg)}
+    100% { transform: rotate(-10deg)}
 }
 
 .horizontal_flexbox {
@@ -46,7 +77,7 @@ body {
 #css_scroll code {
     display: block;
     font-size: 0.7em;
-    color: #222222;
+    color: var(--text-color);
     font-family: "Fira Code", monospace;
     line-height: 1.4;
     font-weight: bold;
