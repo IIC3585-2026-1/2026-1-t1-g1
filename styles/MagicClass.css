@@ -25,15 +25,15 @@ nav {
     gap: 1em;
     padding: 1em;
     background-color: var(--nav-color);
-}
-nav h1 {
-    font-size: 1.5em;
-    margin: 0;
-}
-nav #logo {
-    width: 40px;
-    height: 40px;
-    animation: logo-animation 2s ease-in-out infinite;
+    h1 {
+        font-size: 1.5em;
+        margin: 0;
+    }
+    #logo {
+        width: 40px;
+        height: 40px;
+        animation: logo-animation 2s ease-in-out infinite;
+    }
 }
 
 @keyframes logo-animation{
