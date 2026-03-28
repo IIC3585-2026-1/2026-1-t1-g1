@@ -3,5 +3,5 @@
 ## Setup 
 Abrir HTML con Live Server.
 
-**Referencias**
+## Referencias
 * Patrón CSS del fondo: https://superdesigner.co/tools/css-backgrounds
