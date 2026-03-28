@@ -8,6 +8,15 @@ body {
     background-color: var(--background-color);
     color: var(--text-color);
     margin: 0;
+    background-image: 
+        repeating-linear-gradient(
+            45deg,
+            transparent,
+            transparent 20px,
+            rgba(0,0,0,0.03) 20px,
+            rgba(0,0,0,0.03) 40px
+        );
+    background-attachment: fixed;
 }
 
 nav {
@@ -67,16 +76,23 @@ nav #logo {
     word-break: break-word;
     white-space: pre-wrap;
     overflow-y: auto;
-    background: rgba(255, 255, 255, 0.85);
+    background: rgba(255, 248, 220, 0.9);
     border-radius: 8px;
     padding: 1em;
-
     margin: 0;
+    border-left: 4px solid #8b6914;
+    border-right: 4px solid #8b6914;
+    border-radius: 5px;
+    mask-image: radial-gradient(
+        ellipse 90% 85% at center,
+        black 60%,
+        transparent 100%
+    );
 }
 
 #css_scroll code {
     display: block;
-    font-size: 0.7em;
+    font-size: 0.85em;
     color: var(--text-color);
     font-family: "Fira Code", monospace;
     line-height: 1.4;
