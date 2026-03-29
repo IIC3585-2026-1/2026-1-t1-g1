@@ -23,7 +23,7 @@ body.potion-two #magic_ball {
 /*MagicBall se deforma*/
 
 @keyframes skeOne {
-  0% {transform: skew(0);}
+  0% {transform: skewX(0);}
   40% {transform: skewX(35deg);}
   80% {transform: skewX(-35deg);}
   100% {transform: skewX(0);}
