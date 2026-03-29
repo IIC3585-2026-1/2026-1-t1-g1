@@ -199,8 +199,6 @@ nav {
     grid-template-rows: 
     0.4fr 0.4fr 0.4fr 0.4fr;
     row-gap: 0;
-    container-type: inline-size;
-    container-name: potions;
 }
 
 #one.potion {
@@ -290,13 +288,11 @@ nav {
     }
 
     #magic_zone {
-        order: 1;
         width: min(100%, 30rem);
         gap: 3em;
     }
 
     #potion_grid {
-        order: 2;
         width: min(100%, 34rem);
     }
 }
