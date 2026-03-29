@@ -262,6 +262,7 @@ nav {
 
 .potion {
     cursor: grab;
+    touch-action: none;
 }
 
 .potion:active {
@@ -384,6 +385,12 @@ nav {
     #magic_zone {
         gap: 2rem;
         margin-top: 3rem;
+    }
+
+    .bubble {
+        width: 0.8em;
+        height: 0.8em;
+        bottom: 7em;
     }
 }
 
